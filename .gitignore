@@ -1,0 +1,19 @@
+# Folders to generated files
+graphs
+weights
+datasets
+
+# Uv local files
+uv.lock
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
