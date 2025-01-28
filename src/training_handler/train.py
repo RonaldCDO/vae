@@ -12,10 +12,10 @@ import torch
 load_dotenv()
 
 class Trainer:
-    def loss_function(self, x, x_hat, mean, log_var, beta=1.0):
+    def loss_function(self, x, x_hat, mean, log_var):
         reproduction_loss = nn.functional.binary_cross_entropy(x_hat, x, reduction='sum')
         KLD = -0.5 * torch.sum(1 + log_var - mean.pow(2) - log_var.exp())
-        return reproduction_loss + beta * KLD
+        return reproduction_loss + KLD
 
     def train(self, epochs: int, train_loader, val_loader, model, optimizer):
         DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
